@@ -47,7 +47,7 @@ public:
 
     bool contains(const NacosString &key) const;
 
-    const Properties& getAllConfig() { return appConfig; };
+    Properties getAllConfig() const { return appConfig; };
 
     const NacosString & getContextPath() const { return _contextPath; };
 

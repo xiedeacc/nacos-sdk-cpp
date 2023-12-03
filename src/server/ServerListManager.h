@@ -49,19 +49,15 @@ private:
 
 public:
     //Cluster info
-    inline const NacosString& getClusterName() { return _objectConfigData->_appConfigManager->get(PropertyKeyConst::CLUSTER_NAME); };
+    inline NacosString getClusterName() const { return _objectConfigData->_appConfigManager->get(PropertyKeyConst::CLUSTER_NAME); };
 
-    inline const NacosString& getEndpoint() { return _objectConfigData->_appConfigManager->get(PropertyKeyConst::ENDPOINT); };
+    inline NacosString getEndpoint() const { return _objectConfigData->_appConfigManager->get(PropertyKeyConst::ENDPOINT); };
 
-    inline int getEndpointPort() { return atoi(_objectConfigData->_appConfigManager->get(PropertyKeyConst::ENDPOINT_PORT).c_str()); };
+    inline int getEndpointPort() const { return atoi(_objectConfigData->_appConfigManager->get(PropertyKeyConst::ENDPOINT_PORT).c_str()); };
 
     inline const NacosString &getContextPath() const;
 
-    inline const NacosString& getEndpointContextPath() { return  _objectConfigData->_appConfigManager->get(PropertyKeyConst::ENDPOINT_CONTEXT_PATH); }
-
-    inline const NacosString& getNamespace() { return _objectConfigData->_appConfigManager->get(PropertyKeyConst::NAMESPACE); };
-
-    inline const NacosString& getEndpointQueryParams() { return _objectConfigData->_appConfigManager->get(PropertyKeyConst::ENDPOINT_QUERY_PARAMS); }
+    inline NacosString getNamespace() const { return _objectConfigData->_appConfigManager->get(PropertyKeyConst::NAMESPACE); };
 
     std::list <NacosServerInfo> __debug();//DO NOT use, may be changed without prior notification
 

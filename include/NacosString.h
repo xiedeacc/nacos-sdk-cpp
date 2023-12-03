@@ -1,40 +1,37 @@
 #ifndef __NACOS_STRING_H_
 #define __NACOS_STRING_H_
 
-#include <string>
 #include <sstream>
+#include <string>
 
 #define NacosString std::string
 #define NULLSTR NacosStringOps::nullstr
-#define isNull NacosStringOps::isNullStr
+#define NacosisNull NacosStringOps::isNullStr
 
-namespace nacos{
+namespace nacos {
 class NacosStringOps {
 public:
-    static const NacosString nullstr;
+  static const NacosString nullstr;
 
-    static bool isNullStr(const NacosString &str);
+  static bool isNullStr(const NacosString &str);
 
-    template<typename T>
-    static NacosString valueOf(T val);
+  template <typename T> static NacosString valueOf(T val);
 
-    static const NacosString STR_TRUE;
-    static const NacosString STR_FALSE;
+  static const NacosString STR_TRUE;
+  static const NacosString STR_FALSE;
 };
 
-template<typename T>
-NacosString NacosStringOps::valueOf(T val) {
-    std::ostringstream os;
-    if (os << val) {
-        return NacosString(os.str().c_str());
-    }
+template <typename T> NacosString NacosStringOps::valueOf(T val) {
+  std::ostringstream os;
+  if (os << val) {
+    return NacosString(os.str().c_str());
+  }
 
-    return NULLSTR;
+  return NULLSTR;
 }
 
-template<>
-NacosString NacosStringOps::valueOf<bool>(bool val);
+template <> NacosString NacosStringOps::valueOf<bool>(bool val);
 
-}//namespace nacos
+} // namespace nacos
 
 #endif

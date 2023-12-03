@@ -6,7 +6,7 @@
  * @author Nacos
  */
 
-namespace nacos{
+namespace nacos {
 const NacosString ConfigConstant::DEFAULT_GROUP = "DEFAULT_GROUP";
 const NacosString ConfigConstant::DEFAULT_CONTEXT_PATH = "nacos";
 const NacosString ConfigConstant::PROTOCOL_VERSION = "v1";
@@ -16,15 +16,18 @@ const NacosString ConfigConstant::DATAID = "dataId";
 
 const NacosString ConfigConstant::PROBE_MODIFY_REQUEST = "Listening-Configs";
 
-const NacosString ConfigConstant::PROBE_MODIFY_RESPONSE = "Probe-Modify-Response";
+const NacosString ConfigConstant::PROBE_MODIFY_RESPONSE =
+    "Probe-Modify-Response";
 
 const NacosString ConfigConstant::BASE_PATH = "/v1/cs";
 
-const NacosString ConfigConstant::CONFIG_CONTROLLER_PATH = BASE_PATH + "/configs";
+const NacosString ConfigConstant::CONFIG_CONTROLLER_PATH =
+    BASE_PATH + "/configs";
 
+const NacosString ConfigConstant::CONFIG_HISTORY_PATH = BASE_PATH + "/history";
 /**
-* second
-*/
+ * second
+ */
 const int ConfigConstant::POLLING_INTERVAL_TIME = 15;
 
 const NacosString ConfigConstant::ENCODE = "UTF-8";
@@ -47,5 +50,6 @@ const NacosString ConfigConstant::CONFIG_NEXT_LINE = "\n";
 
 const NacosString ConfigConstant::CONFIG_KV_SEPARATOR = "=";
 
-const NacosString ConfigConstant::DEFAULT_CONFIG_FILE = "nacos-cpp-cli.properties";
-}//namespace nacos
+const NacosString ConfigConstant::DEFAULT_CONFIG_FILE =
+    "nacos-cpp-cli.properties";
+} // namespace nacos

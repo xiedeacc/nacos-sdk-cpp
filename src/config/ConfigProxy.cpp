@@ -44,9 +44,8 @@ HttpResult ConfigProxy::reqAPI
     HttpDelegate *_httpDelegate = _objectConfigData->_httpDelegate;
 
     //TODO: refactor to a common procedure
-    const NacosString& secretKey = _objectConfigData->_appConfigManager->get(PropertyKeyConst::SECRET_KEY);
-    const NacosString& accessKey = _objectConfigData->_appConfigManager->get(PropertyKeyConst::ACCESS_KEY);
-    const NacosString& appName = _objectConfigData->_appConfigManager->get(PropertyKeyConst::APP_NAME);
+    NacosString secretKey = _objectConfigData->_appConfigManager->get(PropertyKeyConst::SECRET_KEY);
+    NacosString accessKey = _objectConfigData->_appConfigManager->get(PropertyKeyConst::ACCESS_KEY);
 
     //If SPAS security credentials are set, SPAS is enabled
     if (!ParamUtils::isBlank(secretKey) && !ParamUtils::isBlank(accessKey)) {
@@ -56,11 +55,6 @@ HttpResult ConfigProxy::reqAPI
         ParamUtils::addKV(headers, "Spas-Signature", signature);
         ParamUtils::addKV(headers, "Timestamp", nowTimeMs);
         ParamUtils::addKV(headers, "Spas-AccessKey", accessKey);
-    }
-
-
-    if (!NacosStringOps::isNullStr(appName)) {
-        ParamUtils::addKV(headers, "Client-AppName", appName);
     }
 
     switch (method) {
